@@ -1,57 +1,85 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Absensi</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login Sistem Absensi</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #4a90e2, #357ABD);
+            background: #f7f9fc;
             margin: 0;
-            padding: 0;
-            color: #fff;
+            padding: 40px 20px;
+            color: #333;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
+        }
+        .login-container {
+            background-color: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            width: 320px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-weight: 600;
             text-align: center;
         }
-        h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 20px;
-            margin-bottom: 30px;
-        }
-        a {
-            display: inline-block;
-            background-color: #fff;
-            color: #357ABD;
-            padding: 12px 24px;
+        form input, form select, form button {
+            margin: 10px 0;
+            padding: 12px;
+            width: 100%;
+            border: 1px solid #ccc;
             border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s ease;
+            font-size: 15px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
         }
-        a:hover {
-            background-color: #f0f0f0;
+        form input:focus, form select:focus {
+            border-color: #4a90e2;
+            outline: none;
         }
-        footer {
-            position: absolute;
-            bottom: 10px;
-            font-size: 14px;
-            color: rgba(255,255,255,0.7);
+        form button {
+            background-color: #4a90e2;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: none;
+            border-radius: 8px;
+        }
+        form button:hover {
+            background-color: #357ABD;
+        }
+        .error {
+            color: #e74c3c;
+            font-weight: 600;
+            margin-top: 12px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <h1>Selamat Datang di Sistem Absensi</h1>
-    <p>Aplikasi web untuk mengelola kehadiran siswa dan admin.</p>
-    <a href="absensi.php">Masuk ke Aplikasi</a>
 
-    <footer>&copy; 2025 Sistem Absensi</footer>
+<div class="login-container">
+    <h2>Login Sistem Absensi</h2>
+    <form method="POST" action="absensi.php">
+        <input type="text" name="username" placeholder="Username" required autofocus />
+        <input type="password" name="password" placeholder="Password" required />
+        <select name="level" required>
+            <option value="">-- Pilih Level --</option>
+            <option value="admin">Admin/Guru</option>
+            <option value="siswa">Siswa</option>
+        </select>
+        <button type="submit" name="login">Login</button>
+    </form>
+    <!-- Tempat untuk menampilkan error jika ada -->
+    <!-- Misal dengan PHP bisa echo <p class="error">Login gagal</p> -->
+</div>
+
 </body>
 </html>
